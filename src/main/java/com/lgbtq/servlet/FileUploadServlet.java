@@ -45,16 +45,21 @@ public class FileUploadServlet extends HttpServlet {
 		String fileName = "";
 		UploadDetail details = null;
 		List<UploadDetail> fileList = new ArrayList<UploadDetail>();
-
+		
+		//Loop recebendo as partes por requisição(?)
 		for (Part part : request.getParts()) {
 			fileName = extractFileName(part);
 			details = new UploadDetail();
 			details.setFileName(fileName);
 			details.setFileSize(part.getSize() / 1024);
+			
+			//Verificando se o arquivo foi enviado com sucesso.
 			try {
 				part.write(uploadPath + File.separator + fileName);
 				details.setUploadStatus("Sucesso");
-			} catch (IOException ioObj) {
+			} 
+			//Caso dê falha, apresenta a mensagem:
+			catch (IOException ioObj) {
 				details.setUploadStatus("Falha :( : "+ ioObj.getMessage());
 			}
 			fileList.add(details);

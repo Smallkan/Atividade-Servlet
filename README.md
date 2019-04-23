@@ -8,7 +8,7 @@
 - Renata Rocha
 - Hemerson Henrique
 - Daniel Correia
-- Diego Porto
+- Diego Portela
 - Maykon Santiago
 
 Escopo do Projeto

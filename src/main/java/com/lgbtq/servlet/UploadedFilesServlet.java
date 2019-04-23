@@ -12,20 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(description = "List The Already Uploaded Files", urlPatterns = { "/uploadedFilesServlet" })
+//
+@WebServlet(description = "Listar os arquivos já enviados", urlPatterns = { "/uploadedFilesServlet" })
 public class UploadedFilesServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	public static final String UPLOAD_DIR = "uploadedFiles";
 
-	/***** This Method Is Called By The Servlet Container To Process A 'GET' Request *****/
+	//Método para receber a requisição por GET apenas
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		handleRequest(request, response);
 	}
 
 	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/***** Get The Absolute Path Of The Web Application *****/
+		//Obter o endereço completo do path
 		String applicationPath = getServletContext().getRealPath(""),
 				uploadPath = applicationPath + File.separator + UPLOAD_DIR;
 

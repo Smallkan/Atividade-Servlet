@@ -1,6 +1,6 @@
 # Atividade Servlet
 
-##Estrelando:
+#Estrelando:
 
 - Jhol Hewres
 - Renata Rocha
@@ -13,18 +13,22 @@ Escopo do Projeto
 =============
 - [x] Base e Rotas
 - [x] Controllers e Métodos
-- [x] Visual :)
-- [ ] Funções
-    - [ ] Upload da Imagem
-    - [ ] Exibir Detalhes da Imagem
-    - [ ] Download da Imagem
+- [x] Visual das JSP :)
+- [x] Funções
+    - [x] Upload da Imagem
+    - [x] Listar Imagens
+    - [x] Exibir Detalhes da Imagem
+    - [x] Download da Imagem
 - [ ] Conclusão
     - [ ] Apresentar o projeto
     - [ ] Ganhar os pontos :)
 
-Documentação das bibliotecas
+Documentação
 =============
+#Maven - Dependências
 
-##pom.xml
+> Especificando melhor as dependências da API do Servlet. As dependências restantes serão automaticamente resolvidas pelo Marven Framework e o arquivo atualizado.
+
+#pom.xml
 
 > Modelo de Objeto do Projeto, é um arquivo XML que contém informações sobre o projeto e detalhes de configurações pelo Maven para construir o projeto. Ele contém valores padrão para a maioria dos projetos.

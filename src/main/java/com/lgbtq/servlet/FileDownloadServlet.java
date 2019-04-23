@@ -19,14 +19,14 @@ public class FileDownloadServlet extends HttpServlet {
 	public static int BUFFER_SIZE = 1024 * 100;
 	public static final String UPLOAD_DIR = "uploadedFiles";
 
-	/***** This Method Is Called By The Servlet Container To Process A 'GET' Request *****/
+	//Recebendo requisição apenas por GET
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		handleRequest(request, response);
 	}
 
 	public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		/***** Get The Absolute Path Of The File To Be Downloaded *****/
+		//Obter o path da aplicação
 		String fileName = request.getParameter("fileName"),
 				applicationPath = getServletContext().getRealPath(""),
 				downloadPath = applicationPath + File.separator + UPLOAD_DIR,
@@ -38,29 +38,29 @@ public class FileDownloadServlet extends HttpServlet {
 
 		if (file.exists()) {
 
-			/**** Setting The Content Attributes For The Response Object ****/
+			//Configura os atributos do conteúdo para o objeto do request
 			String mimeType = "application/octet-stream";
 			response.setContentType(mimeType);
 
-			/**** Setting The Headers For The Response Object ****/
+			//Configura os headers para o objeto do request
 			String headerKey = "Content-Disposition";
 			String headerValue = String.format("attachment; filename=\"%s\"", file.getName());
 			response.setHeader(headerKey, headerValue);
 
 			try {
 
-				/**** Get The Output Stream Of The Response ****/
+				//Isso é para obter o fluxo de saída do request
 				outStream = response.getOutputStream();
 				inputStream = new FileInputStream(file);
 				byte[] buffer = new byte[BUFFER_SIZE];
 				int bytesRead = -1;
 
-				/**** Write Each Byte Of Data Read From The Input Stream Write Each Byte Of Data  Read From The Input Stream Into The Output Stream ****/
+				//A ideia desse é escrever cada byte de dados lidos a partir do fluxo de entrada e depois gravá-los para lançar no fluxo de saída, eu acho.
 				while ((bytesRead = inputStream.read(buffer)) != -1) {
 					outStream.write(buffer, 0, bytesRead);
 				}				
 			} catch(IOException ioExObj) {
-				System.out.println("Exception While Performing The I/O Operation?= " + ioExObj.getMessage());
+				System.out.println("Exceção para executar a operação de I/O = " + ioExObj.getMessage());
 			} finally {				
 				if (inputStream != null) {
 					inputStream.close();
@@ -73,11 +73,11 @@ public class FileDownloadServlet extends HttpServlet {
 			}
 		} else {
 
-			/***** Set Response Content Type *****/
+			//Tipo do charset do request
 			response.setContentType("text/html");
 
-			/***** Print The Response *****/
-			response.getWriter().println("<h3>File "+ fileName +" Is Not Present .....!</h3>");
+			//Printar o response e tals
+			response.getWriter().println("<h3>O arquivo "+ fileName +" Não está aqui, rs...!</h3>");
 		}
 	}
 }

@@ -21,9 +21,9 @@ Escopo do Projeto
     - [x] Listar Imagens
     - [x] Exibir Detalhes da Imagem
     - [x] Download da Imagem
-- [ ] Conclusão
-    - [ ] Apresentar o projeto
-    - [ ] Ganhar os pontos :)
+- [x] Conclusão
+    - [x] Apresentar o projeto
+    - [x] Ganhar os pontos :)
 
 Documentação
 =============
